@@ -1,6 +1,20 @@
+// verificação dados
 
 let lista = []
-let proximoId = 1
+function carregarLista(){
+    let dadosSalvos = localStorage.getItem("afazeres")
+    if(dadosSalvos){
+        lista = JSON.parse(dadosSalvos)
+    }
+}
+
+
+// funções importantes de salvamento
+function salvarLista(){
+    localStorage.setItem("afazeres",JSON.stringify(lista))
+}
+
+// inicio
 
 class Afazer {
     constructor(id, afazer, concluido = false) {
@@ -9,12 +23,15 @@ class Afazer {
         this.concluido = concluido
     }
 }
+function criarId(){
+    let uuid = crypto.randomUUID()
+    return uuid
+}
 
 function adicionarAfazer(texto) {
     if (typeof texto === "string") {
-        const novoAfazer = new Afazer(proximoId, texto, false)
+        const novoAfazer = new Afazer(criarId(), texto, false)
         lista.push(novoAfazer)
-        proximoId++
         console.log(`Afazer Adicionado: ${texto}`)
     } else {
         console.log("Erro: Apenas textos são permitidos!")
@@ -31,11 +48,21 @@ function removerAfazer(id) {
     }
 }
 
+
 function concluirAfazer(id) {
     lista.forEach((tarefa) => {
         if(tarefa.id === id){
             console.log("Tarefa concluida")
             tarefa.concluido = true
+        }
+    })
+}
+
+function removerConclusao(id) {
+    lista.forEach((tarefa) => {
+        if(tarefa.id === id){
+            console.log("Tarefa concluida")
+            tarefa.concluido = false
         }
     })
 }
@@ -57,8 +84,8 @@ function atualizarTela() {
         li.innerHTML = `
             <span>${tarefa.afazer}</span>
             <div class="grupo-icones">
-                <button class="lixo" onclick="dispararRemocao(${tarefa.id})"><img src="img/lixo.png" alt="remover"></button>
-                <button class="check" onclick="dispararConclusao(${tarefa.id})"><img src="img/check.png" alt="check"></button>
+                <button class="lixo" onclick="dispararRemocao('${tarefa.id}')"><img src="img/lixo.png" alt="remover"></button>
+                <button class="check" onclick="dispararConclusao('${tarefa.id}')"><img src="img/check.png" alt="check"></button>
             </div>
             `
         ulHtml.appendChild(li) 
@@ -70,20 +97,34 @@ function dispararAdicao(){
     if (textoDigitado.trim() !== "") {
         adicionarAfazer(textoDigitado)
         inputHtml.value = ""
+        salvarLista()
         atualizarTela()
     }                
 }
 
 function dispararRemocao(id){
     removerAfazer(id)
+    salvarLista()
     atualizarTela()
 }
 
 function dispararConclusao(id){
-    concluirAfazer(id)
     const tarefaClicada = lista.find(tarefa => tarefa.id === id)
-    if (tarefaClicada.concluido === true) {
+    if (tarefaClicada.concluido !== true) {
+        concluirAfazer(id)
         console.log(`A tarefa ${tarefaClicada.afazer} foi concluida`)
     } 
+    else {
+        removerConclusao(id)
+    }
+    salvarLista()
     atualizarTela()
 }
+
+function bolsonaro(){
+    const body = document.body
+    body.classList.toggle("bolsonaro");
+}
+
+carregarLista()
+atualizarTela()

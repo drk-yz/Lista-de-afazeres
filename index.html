@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Derick Levi">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/index.css">
+
     <title>Lista de Afazeres</title>
 </head>
 <body>
@@ -18,10 +16,14 @@
 
     <div class="listbox">
         <div class="texto-grupo">
-            <input type="text" id="campo-texto" placeholder="Insira seu azafer"> <button class="botao" onclick="dispararAdicao()" >Adicionar afazer</button>
+            <input type="text" id="campo-texto" placeholder="Insira seu afazer"> <button class="botao" onclick="dispararAdicao()" >Adicionar afazer</button>
         </div>
         <ul id="lista-visual"></ul>
     </div>
+    <footer class="rodape">
+        <p>Por Derick Levi - 2026</p>
+        <button class="botao-brasil" onclick="bolsonaro()"><img src="img/brasil.png" alt="brasil"></button>
+    </footer>
     <script src="script/lista.js"></script>
 </body>
 </html>

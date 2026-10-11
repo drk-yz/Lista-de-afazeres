@@ -5,3 +5,8 @@
     font-family: "Roboto Condensed", sans-serif;
     font-style: normal;
 }
+
+body {
+    display: flexbox;
+    min-height: 100vh;
+}
