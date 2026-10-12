@@ -175,3 +175,13 @@ li.tarefa-feita {
 .rodape p {
     font-family: Arial, Helvetica, sans-serif;
 }
+
+.sixseven {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 99999; 
+    background: black;
+}
