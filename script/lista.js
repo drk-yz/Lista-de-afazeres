@@ -144,6 +144,7 @@ function sixseven() {
     video.src = "../img/videos/67.mp4"
     video.classList.add("sixseven")
     video.controls = true
+    video.muted = true
 
     // o botao p sair do video
     const botaoFechar = document.createElement("button")
