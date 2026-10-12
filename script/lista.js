@@ -100,7 +100,7 @@ function atualizarTela() {
 
 function dispararAdicao(){
     const textoDigitado = inputHtml.value
-    if (textoDigitado == 67){
+    if (textoDigitado === "67"){
         adicionarAfazer(textoDigitado)
         inputHtml.value = ""
         sixseven()
