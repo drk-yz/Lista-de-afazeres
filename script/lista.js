@@ -65,6 +65,22 @@ function removerConclusao(id) {
     })
 }
 
+function contarTarefas(){
+    let contagem = 0
+    let concluidas = 0
+    let pendentes = 0
+    lista.forEach((tarefa) => {
+        contagem++
+        if(tarefa.concluido === true){
+            concluidas++
+        }
+        else {
+            pendentes++
+        }
+    }
+    )
+    return [contagem, concluidas, pendentes]
+}
 
 
 
@@ -95,6 +111,9 @@ function atualizarTela() {
 
         ulHtml.appendChild(li) 
     })
+    const quantidade = contarTarefas()
+    const contagem = document.getElementById("contador")
+    contagem.textContent = `${quantidade[0]} Tarefas · ${quantidade[1]} Concluidas · ${quantidade[2]} Pendentes`
 }
 
 
@@ -147,7 +166,7 @@ function sixseven() {
 
     // o botao p sair do video
     const botaoFechar = document.createElement("button")
-    botaoFechar.textContent = "❌"
+    botaoFechar.textContent = "X"
     botaoFechar.classList.add("botaoFechar") 
 
     botaoFechar.addEventListener("click", () => {

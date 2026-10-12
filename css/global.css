@@ -16,11 +16,12 @@ body {
 }
 
 .botaoFechar {
+    color: azure;
     position: fixed;
     top: 20px;
     right: 20px;
     z-index: 100000;
-    font-size: 30px;
+    font-size: 50px;
     background: none;
     border: none;
     cursor: pointer;
