@@ -141,7 +141,7 @@ function bolsonaro(){
 
 function sixseven() {
     const video = document.createElement("video")
-    video.src = "../img/videos/67.mp4"
+    video.src = "img/videos/67.mp4"
     video.classList.add("sixseven")
     video.controls = true
     video.muted = true
