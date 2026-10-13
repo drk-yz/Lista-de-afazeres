@@ -1,3 +1,23 @@
+body {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(-55deg, #d9f486, #FAF5CF, #a69ed2, rgb(160, 154, 190));
+  background-size: 400% 400%;
+  animation: gradienteMovimento 12s ease infinite;
+}
+
+@keyframes gradienteMovimento {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 
 /* meme kaskakska */   
 .botao-brasil {
@@ -16,7 +36,7 @@
 
 .bolsonaro {
     background-image: url("../img/fundo.png");
-    background-size: 70vw;
+    background-size: 500px 90%;
     height: 100%;
     .listbox{
         background-image: url(../img/bolsonaro.jpg);
@@ -35,13 +55,13 @@
 }
 
 h1{
-    background-color: rgb(52, 52, 143);
+    background-color: #7269A5;
     color: white;
 
     width: 100%;
     margin-bottom: 30px;
     padding: 40px;
-    border-bottom: 4px solid rgb(56, 56, 107);
+    border-bottom: 4px solid #595182;
     box-shadow: 2px 2px 20px 2px rgba(0, 0, 0, 0.3);
     
     position: sticky;
@@ -52,7 +72,7 @@ h1{
 /* o caixa de afazeres */
 .listbox {
     justify-self: center;
-    background-color: rgb(123, 123, 255);
+    background-color: rgb(119, 110, 170);
     border-radius: 15px;
     box-shadow: 4px 4px 20px 3px rgba(0, 0, 0, 0.3);
     
@@ -62,7 +82,8 @@ h1{
     max-width: 1400px; 
     min-height: 150px; 
     height: auto;
-    
+    border: 4px solid rgb(119, 110, 170);
+
     word-wrap: break-word; 
 }
 
@@ -80,7 +101,7 @@ h1{
     font-weight: 600;
     font-size: clamp(0.8rem, 2.5vw, 1rem);
     color: #ffffff;
-    background-color: rgb(82, 82, 245);
+    background-color: #5f5498;
     box-shadow: 4px 4px 20px 3px rgba(0, 0, 0, 0.3);
     border-radius: 8px;
 }
